@@ -1,0 +1,16 @@
+<!-- Checks for errors -->
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+    <!--Alerts the user that the form contains an/multiple errors-->
+      The form contains <%= pluralize(object.errors.count, "error") %>.
+    </div>
+    <ul>
+    <!--Loops over the errors and prints the full error message to the screen. The erb tag: <% %> will run Ruby logic and will not print to screen. -->
+    <% object.errors.full_messages.each do |msg| %>
+    <!--These erb tags will render the message to the screen. The <%= tag will print something to the screen which in this case is an error message. -->
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
